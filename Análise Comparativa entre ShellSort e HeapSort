@@ -1,0 +1,41 @@
+Questão 1
+O HeapSort sempre tem complexidade O(n log n) porque usa uma heap (árvore binária completa). A altura da árvore é log n, então cada remoção ou reorganização leva log n, e como isso acontece n vezes, o total fica O(n log n). Já o ShellSort não tem complexidade fixa porque depende da sequência de gaps usada. Dependendo dos gaps escolhidos, ele pode ser mais rápido ou mais lento.
+
+Questão 2
+Vetor inicial:
+ [30, 12, 45, 6, 18, 3]
+a) Max-Heap
+Organizando para que o maior elemento fique na raiz:
+        45
+       /  \
+     18    30
+    /  \   /
+   6   12 3
+
+[45, 18, 30, 6, 12, 3]
+b) Após a primeira extração da raiz
+Troca o 45 com o último elemento e reorganiza a heap:
+        30
+       /  \
+     18    3
+    /  \
+   6   12
+[30, 18, 3, 6, 12, 45]
+(O 45 já fica na posição final ordenada.)
+
+Questão 3
+I – F
+ II – V
+ III – F
+ IV – V
+ Resposta A) Apenas II e IV
+
+Questão 4
+O mais indicado seria o HeapSort.
+Porque ele sempre tem complexidade O(n log n), então o desempenho é mais previsível mesmo com milhões de registros.
+
+Questão 5
+A Heap pode ser usada como fila de prioridade em algoritmos de grafos.
+Exemplo: algoritmo de Dijkstra.
+Ele usa uma Min-Heap para sempre pegar o vértice com menor distância primeiro, o que deixa o algoritmo mais eficiente.
+
