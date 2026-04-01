@@ -1,0 +1,266 @@
+Exercício 1 
+
+int main() {
+    int matriculas[] = {512, 102, 678, 205, 789, 317, 404};
+    int busca, i, achou = 0;
+    
+    scanf("%d", &busca);
+    
+    for(i = 0; i < 7; i++) {
+        if(matriculas[i] == busca) {
+            printf("Aluno presente na posicao %d", i);
+            achou = 1;
+        }
+    }
+    
+    if(!achou) printf("Nao encontrado");
+    return 0;
+}
+Exercício 2 
+
+int main() {
+    int produtos[] = {55, 12, 89, 33, 21, 90, 44};
+    int cod, i;
+    
+    scanf("%d", &cod);
+    
+    for(i = 0; i < 7; i++) {
+        if(produtos[i] == cod) {
+            printf("Produto %d encontrado", cod);
+        }
+    }
+    return 0;
+}
+Exercício 3 
+
+int main() {
+    int livros[] = {10, 23, 35, 47, 59, 62, 78, 91};
+    int ini = 0, fim = 7, meio, busca, cont = 0;
+    
+    scanf("%d", &busca);
+    
+    while(ini <= fim) {
+        cont++;
+        meio = (ini + fim) / 2;
+        if(livros[meio] == busca) {
+            printf("Livro encontrado. Iteracoes: %d", cont);
+            return 0;
+        }
+        if(livros[meio] < busca) ini = meio + 1;
+        else fim = meio - 1;
+    }
+    printf("Nao encontrado. Iteracoes: %d", cont);
+    return 0;
+}
+Exercício 4 
+
+int main() {
+    int ids[] = {101, 203, 305, 407, 509, 611, 713};
+    int busca, ini = 0, fim = 6, meio;
+    
+    scanf("%d", &busca);
+    
+    while(ini <= fim) {
+        meio = (ini + fim) / 2;
+        if(ids[meio] == busca) {
+            printf("Acesso permitido");
+            return 0;
+        }
+        if(ids[meio] < busca) ini = meio + 1;
+        else fim = meio - 1;
+    }
+    printf("Usuario nao encontrado");
+    return 0;
+}
+Exercício 5 
+
+int main() {
+    int vet[] = {45, 12, 78, 3, 56, 89, 23, 67};
+    int i, j, aux, busca;
+    
+    printf("Antes: ");
+    for(i=0; i<8; i++) printf("%d ", vet[i]);
+
+    for(i=0; i<8; i++) {
+        for(j=0; j<8; j++) { 
+            if(vet[j] > vet[j+1]) {
+                aux = vet[j];
+                vet[j] = vet[j+1];
+                vet[j+1] = aux;
+            }
+        }
+    }
+
+    printf("\nDepois: ");
+    for(i=0; i<8; i++) printf("%d ", vet[i]);
+    
+    return 0;
+}
+Exercício 6 
+
+int main() {
+    char *nomes[] = {"Daniel", "Ana", "Eduarda", "Carlos", "Bruna"};
+    char busca[20];
+    int i;
+    
+    scanf("%s", busca);
+    
+    for(i=0; i<5; i++) {
+        if(nomes[i] == busca) { 
+            printf("Encontrado %s na posicao %d", nomes[i], i);
+        }
+    }
+    return 0;
+}
+Exercício 7 - Comparação de DesempenhoA busca sequencial em um vetor de 1000 elementos realiza, em média, 500 operações (n/2). 
+Já a busca binária realiza, em média, cerca de 9 a 10 operações  
+O algoritmo binário é muito mais eficiente porque divide o problema pela metade a cada passo, mas exige que os dados estejam ordenados.
+
+Exercício 8 
+
+int main() {
+    int notas[] = {2, 3, 5, 6, 7, 8, 9, 10};
+    int busca, ini=0, fim=7, meio, achou=-1;
+    
+    scanf("%d", &busca);
+    
+    while(ini <= fim) {
+        meio = (ini+fim)/2;
+        if(notas[meio] == busca) {
+            achou = meio;
+            break;
+        }
+        if(notas[meio] < busca) ini = meio + 1;
+        else fim = meio - 1;
+    }
+    
+    if(achou != -1) {
+        printf("Existem %d alunos com nota maior", 7 - achou);
+    }
+    return 0;
+}
+Exercício 9 
+int busca(int v[], int n, int x) {
+    int i = 0, f = n-1, m;
+    while(i <= f) {
+        m = (i+f)/2;
+        if(v[m] == x) return m;
+        if(v[m] < x) i = m + 1;
+        else f = m - 1;
+    }
+    return -1;
+}
+
+int main() {
+    int v[] = {5, 10, 15, 20, 25, 30};
+    printf("%d", busca(v, 6, 20));
+    return 0;
+}
+
+Exercício 10 - Escolha do AlgoritmoLista A: Busca Sequencial. 
+Como não está ordenada, o custo de ordenar para depois buscar uma única vez não compensa.
+Lista B: Busca Binária. Com 1 milhão de elementos, a busca sequencial seria muito lenta (O(n)), enquanto a binária é instantânea (O(log n)).
+
+Exercícios 11
+
+int main() {
+    int pedidos[] = {903, 112, 457, 221, 678, 345, 789, 150};
+    int busca, i, comps = 0;
+    scanf("%d", &busca);
+    for(i=0; i<8; i++) {
+        comps++;
+        if(pedidos[i] == busca) {
+            printf("Posicao %d, Comparações: %d", i, comps);
+            return 0;
+        }
+    }
+    return 0;
+}
+Exercício 12 
+
+int main() {
+    long long tels[] = {11987654321, 11991234567, 11993456789, 11995678901, 11997890123};
+    long long b;
+    int i=0, f=4, m;
+    scanf("%lld", &b);
+    while(i < f) { 
+        m = (i+f)/2;
+        if(tels[m] == b) { printf("Pos %d", m); return 0; }
+        if(tels[m] < b) i = m + 1;
+        else f = m;
+    }
+    return 0;
+}
+
+Exercício 13 
+
+int main() {
+    int s[] = {45, 12, 78, 33, 90, 21, 56, 67};
+    int b, i, c=0;
+    scanf("%d", &b);
+    for(i=0; i<8; i++) {
+        c++;
+        if(s[i] == b) break;
+    }
+    printf("Verificacoes: %d", c);
+    return 0;
+}
+
+Exercício 16 
+
+int main() {
+    int votos[] = {3, 1, 4, 2, 5, 3, 2, 1, 4};
+    int b, i, cont=0;
+    scanf("%d", &b);
+    for(i=0; i<9; i++) {
+        if(votos[i] == b) {
+            cont++;
+            break;
+        }
+    }
+    printf("Total: %d", cont);
+    return 0;
+}
+
+Exercício 19 
+
+int main() {
+    int v[] = {12, 45, 12, 67, 89, 45, 23};
+    int i, j;
+    for(i=0; i<7; i++) {
+        for(j=i+1; j<7; j++) {
+            if(v[i] == v[j]) printf("Duplicado: %d ", v[i]);
+        }
+    }
+    return 0;
+}
+
+Exercício 20 - A melhor estratégia é ordenar os dados e usar busca binária. 
+Como há milhares de buscas por segundo, o ganho de performance da busca binária compensa o custo de manter o vetor ordenado durante as inserções.
+
+Exercício 22 
+
+int main() {
+    int t[] = {1001, 1020, 1055, 1100, 1200, 1300, 1500};
+    int i=0, f=6, m, b;
+    scanf("%d", &b);
+    while(i<=f) {
+        m = (i+f)/2;
+        printf("I:%d M:%d F:%d\n", i, m, f);
+        if(t[m] == b) return 0;
+        if(t[m] < b) i = m + 1;
+        else f = m - 1;
+    }
+    return 0;
+}
+
+Exercício 26 - Simulação de Pior CasoNo pior caso da busca sequencial (elemento no final ou inexistente), o algoritmo percorre todos os $N$ elementos (500 operações).
+No melhor caso (elemento na primeira posição), realiza apenas 1 operação.
+
+Exercício 27 - Busca Binária Iterativa vs RecursivaA abordagem iterativa (com while) costuma ser mais eficiente em termos de memória em C, 
+pois não cria novos frames na pilha de execução. A recursiva é mais legível e elegante matematicamente, 
+mas pode causar stack overflow em listas gigantescas.
+
+Exercício 30 -A busca binária é mais rápida em volumes grandes, mas em vetores muito pequenos (ex: 3 elementos), 
+a sequencial pode ser mais rápida pela simplicidade.Verdadeira. Ela olha um por um, independente da ordem.
+Verdadeira. Se os dados estiverem bagunçados, a lógica de "cortar ao meio" não funciona.
