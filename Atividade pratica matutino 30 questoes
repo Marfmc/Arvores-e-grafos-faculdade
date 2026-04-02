@@ -206,6 +206,47 @@ int main() {
     return 0;
 }
 
+Exercício 14
+
+#include <stdio.h>
+
+int main() {
+    int cpfs[] = {111222333, 222333444, 444555666, 777888999};
+    int busca, i = 0, f = 3, m, etapa = 0;
+    
+    scanf("%d", &busca);
+    while(i <= f) {
+        etapa++;
+        m = (i + f) / 2;
+        if(cpfs[m] == busca) {
+            printf("Posicao: %d, Etapas: %d", m, etapa);
+            return 0;
+        }
+        if(cpfs[m] < busca) i = m + 1;
+        else f = m - 1;
+    }
+    return 0;
+}
+
+Exercício 15
+
+#include <stdio.h>
+
+int main() {
+    int d[] = {88, 23, 45, 12, 67, 34, 90, 10};
+    int i, j, min, aux;
+    
+    for(i = 0; i < 8; i++) {
+        min = i;
+        for(j = i + 1; j < 8; j++) {
+            if(d[j] < d[min]) min = j;
+        }
+        d[i] = d[min]; 
+        d[min] = aux
+    }
+    return 0;
+}
+
 Exercício 16 
 
 int main() {
@@ -219,6 +260,43 @@ int main() {
         }
     }
     printf("Total: %d", cont);
+    return 0;
+}
+
+Exercício 17
+
+#include <stdio.h>
+
+int main() {
+    int t[] = {15, 17, 19, 21, 23, 25, 27, 30};
+    int b, i=0, f=7, m;
+    scanf("%d", &b);
+    while(i <= f) {
+        m = (i + f) / 2;
+        if(t[m] == b) { printf("Existe"); return 0; }
+        if(t[m] < b) i = m + 1;
+        else f = m - 1;
+    }
+    printf("Poderia ser inserido na posicao %d", m);
+    return 0;
+}
+
+Exercicio 18
+
+#include <stdio.h>
+
+int main() {
+    int ids[] = {501, 123, 876, 234, 654, 345, 999};
+    int b, i, c = 0;
+    scanf("%d", &b);
+    for(i = 0; i < 7; i++) {
+        c++;
+        if(ids[i] == b) {
+            printf("Posicao: %d", i);
+            return 0;
+        }
+    }
+    printf("Nao encontrado. Verificados: %d", c);
     return 0;
 }
 
@@ -250,6 +328,24 @@ int main() {
         if(t[m] == b) return 0;
         if(t[m] < b) i = m + 1;
         else f = m - 1;
+    }
+    return 0;
+}
+
+Exercício 25
+
+#include <stdio.h>
+
+int main() {
+    int v[] = {77, 12, 89, 34, 56, 23, 90};
+    int b, i, c = 0;
+    scanf("%d", &b);
+    for(i = 0; i < 7; i++) {
+        c++;
+        if(v[i] == b) {
+            printf("Achou! Verificacoes: %d", c);
+            break;
+        }
     }
     return 0;
 }
